@@ -1,0 +1,402 @@
+@font-face {
+  font-family: "All Round Gothic";
+  src: url("./fonts/All-Round-Gothic-W01-Demi.ttf");
+  font-display: swap;
+}
+
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+#entry-screen {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+
+  display: grid;
+  place-content: center;
+  opacity: 1;
+  overflow: hidden;
+
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+
+  background: url(./img/hero.webp);
+  background-position: center;
+  background-size: cover;
+
+  text-align: center;
+
+  animation-name: entry-screen-animation;
+  animation-duration: 5s;
+}
+
+#entry-screen h1 {
+  position: fixed;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0.5em;
+
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+
+  font-size: 2em;
+  color: white;
+}
+
+#entry-screen h1 span {
+  font-family: "All Round Gothic";
+  font-size: 2em;
+}
+
+#entry-screen h1 span span {
+  font-size: 1em;
+  background: linear-gradient(
+    0deg,
+    rgba(99, 76, 34, 1) 0%,
+    rgba(226, 203, 121, 1) 50%,
+    rgba(99, 76, 34, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main {
+  z-index: 1;
+
+  height: 100vh;
+  opacity: 0;
+
+  display: flex;
+  flex-flow: column;
+
+  animation-name: main-content-animation;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px 30px;
+}
+
+header img {
+  width: 120px;
+}
+
+nav {
+  display: grid;
+  place-content: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0 1rem;
+
+  margin: 0;
+  padding: 0;
+
+  vertical-align: middle;
+
+  list-style-type: none;
+}
+
+nav ul li a {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: black;
+}
+
+nav ul li button {
+  padding: 0;
+
+  border: none;
+  background: none;
+
+  font-size: 1.5em;
+
+  cursor: pointer;
+}
+
+#contact {
+  position: fixed;
+  z-index: 5;
+
+  display: flex;
+  justify-content: space-around;
+
+  width: 100%;
+  overflow: hidden;
+
+  background: white;
+
+  transition: 1.5s;
+}
+
+#contact p {
+  height: 100%;
+  margin: auto 0;
+
+  font-family: "Inconsolata", monospace;
+  font-size: 2.5rem;
+  text-decoration: 2px solid underline black;
+}
+
+#contact figure img {
+  width: 300px;
+}
+
+#contact figure figcaption {
+  padding-left: 20px;
+}
+
+address {
+  font-style: normal;
+}
+
+.contact {
+  max-height: 500px;
+
+  border-bottom: 3px solid #b68438;
+}
+
+.shrinked {
+  max-height: 0;
+
+  border-bottom-width: 0;
+}
+
+#content {
+  position: relative;
+
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  transition: 1.5s;
+}
+
+#content div:not(.photos),
+#fenster-content article,
+#treppen-content article {
+  position: absolute;
+  top: 0;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+
+  transition: 1.5s;
+}
+
+#content #main-content {
+  left: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#content button {
+  position: absolute;
+
+  padding: 0;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+#arrow-left {
+  left: 5px;
+}
+
+#arrow-right {
+  right: 5px;
+}
+
+#main-content article {
+  position: relative;
+
+  height: 90%;
+  width: 40vw;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+
+.blured {
+  filter: blur(5px);
+}
+
+#main-content article:first-of-type {
+  background: url(./img/hero-fenster.webp);
+  background-position: center;
+  background-size: cover;
+}
+
+#main-content article:last-of-type {
+  background: url(./img/hero-treppen.webp);
+  background-position: center;
+  background-size: cover;
+}
+
+article h2 {
+  display: block;
+
+  margin: 40px;
+  padding: 0.2em;
+
+  font-size: 2rem;
+}
+
+article:first-of-type h2 {
+  text-align: right;
+}
+
+article:last-of-type h2 {
+  text-align: left;
+}
+
+#content #fenster-content {
+  top: 0;
+  left: -100%;
+}
+
+#content #treppen-content {
+  top: 0;
+  left: 100%;
+}
+
+#fenster-content article div,
+#treppen-content article div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px 20px;
+
+  box-sizing: border-box;
+  width: 80vw;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 10px 50px;
+  overflow-y: auto;
+}
+
+#fenster-content article div img,
+#treppen-content article div img {
+  max-width: 300px;
+  max-height: 225px;
+  object-fit: contain;
+}
+
+#main-content article:hover,
+#arrow-left:hover,
+#arrow-right:hover {
+  scale: 1.05;
+}
+
+#fenster-content #arrow-right-fenster {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#treppen-content #arrow-left-treppen {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-left: 10vw;
+  margin-bottom: 2rem;
+}
+
+@keyframes entry-screen-animation {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes main-content-animation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header img {
+    width: 100px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  #main-content article {
+    width: 75vw;
+    height: 40%;
+  }
+
+  #main-content article h2 {
+    margin: 10px;
+
+    font-size: 1.5rem;
+  }
+
+  #content #arrow-left {
+    top: 25%;
+    transform: translateY(-25%);
+  }
+
+  #content #arrow-right {
+    top: 75%;
+    transform: translateY(-25%);
+  }
+
+  #fenster-content article img {
+    max-width: 160px;
+    max-height: 120px;
+  }
+}
