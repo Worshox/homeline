@@ -29,9 +29,10 @@ mainLeftArrow.addEventListener('click', () => {
     if(!fensterPhotosAdded){
         for (i = 1; i <= 8; i++){
             let img = document.createElement('img');
-            img.src = `./img/fenster-images/HomeLineFenster${i}.webp`;
+            img.src = `./img/fenster-images-360/HomeLineFenster${i}.webp`;
             img.alt = 'HomeLine Fenster, Garagentore, Rollos.'
-            img.setAttribute('loading', 'lazy');
+            // img.width = '360';
+            img.height = '270';
             fensterContentContainer.querySelector('.photos').appendChild(img);
         }
         fensterPhotosAdded = true;
@@ -58,9 +59,10 @@ mainRightArrow.addEventListener('click', () => {
     if(!treppenPhotosAdded){
         for (i = 1; i <= 45; i++){
             let img = document.createElement('img');
-            img.src = `./img/treppen-images/HomeLineTreppen${i}.webp`;
+            img.src = `./img/treppen-images-360/HomeLineTreppen${i}.webp`;
             img.alt = 'HomeLine Treppen und Innentüren.';
-            // img.loading = 'lazy';
+            // img.width = '360';
+            img.height = '270';
             treppenContentContainer.querySelector('.photos').appendChild(img);
         }
         treppenPhotosAdded = true;

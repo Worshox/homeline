@@ -306,8 +306,8 @@ article:last-of-type h2 {
 
 #fenster-content article div img,
 #treppen-content article div img {
-  max-width: 300px;
-  max-height: 225px;
+  max-width: 360px;
+  max-height: 270px;
   object-fit: contain;
 }
 
@@ -395,7 +395,8 @@ h3 {
     transform: translateY(-25%);
   }
 
-  #fenster-content article img {
+  #fenster-content article div img,
+  #treppen-content article div img {
     max-width: 160px;
     max-height: 120px;
   }
