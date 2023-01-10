@@ -6,15 +6,13 @@ entryScreen.addEventListener('animationend', () => {
 const contactButton = document.querySelector('#contact-button');
 contactButton.addEventListener('click', () => {
     document.getElementById('contact').classList.toggle('shrinked');
-    document.querySelector('#content').classList.toggle('blured');  
+    window.innerWidth > 768 ?? document.querySelector('#content').classList.toggle('blured');
 });
 
-
-const header = document.querySelector('header');
-const headerHeight = header.offsetHeight;
-
-const contactContainer = document.querySelector('#contact');
-contactContainer.style.top = `${headerHeight}px`;
+if (window.innerWidth > 768) {
+    const contactContainer = document.querySelector('#contact');
+    contactContainer.style.top = `109px`;
+}
 
 
 let fensterPhotosAdded, treppenPhotosAdded = false;
@@ -85,4 +83,18 @@ mainArticles[0].addEventListener('click', () => {
 });
 mainArticles[1].addEventListener('click', () => {
     document.querySelector('#arrow-right').click();
+});
+
+let menuExpanded = false;
+const menuButton = document.querySelector('#hamburger');
+menuButton.addEventListener('click', () => {
+    document.querySelector('#content').classList.toggle('blured');
+    const nav = document.querySelector('nav');
+    if (menuExpanded){
+        nav.style.maxHeight = '0px';
+        menuExpanded = false;
+    } else {
+        nav.style.maxHeight = '100px';
+        menuExpanded = true;
+    }
 });
